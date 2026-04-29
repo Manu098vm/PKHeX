@@ -702,7 +702,7 @@ public sealed class WA9(Memory<byte> raw) : DataMysteryGift(raw), ILangNick, INa
         if (pk is IAlphaReadOnly a && a.IsAlpha != IsAlpha)
             return true;
 
-        if (IsHOMEGift)
+        if (IsHOMEGift && FlawlessIVCount > 0)
         {
             if (pk.FlawlessIVCount != FlawlessIVCount)
                 return false; // HOME ZA-starters have non-perfect IVs to 20, so IVs at 31 can't exceed the flawless count.
