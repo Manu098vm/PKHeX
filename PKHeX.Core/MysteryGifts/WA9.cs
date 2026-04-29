@@ -108,10 +108,11 @@ public sealed class WA9(Memory<byte> raw) : DataMysteryGift(raw), ILangNick, INa
 
     private uint GetShinyXor()
     {
+        var id32 = IsOldIDFormat ? ID32Old : ID32;
         // Player owned anti-shiny fixed PID
-        if (ID32 == 0)
+        if (id32 == 0)
             return uint.MaxValue;
-        return ShinyUtil.GetShinyXor(PID, ID32);
+        return ShinyUtil.GetShinyXor(PID, id32);
     }
 
     // When applying the ID32, the game sets the DisplayTID7 directly, then sets PA9.DisplaySID7 as (wa9.DisplaySID7 - wa9.CardID)
