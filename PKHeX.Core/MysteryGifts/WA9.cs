@@ -102,7 +102,7 @@ public sealed class WA9(Memory<byte> raw) : DataMysteryGift(raw), ILangNick, INa
     private Shiny FixedShinyType() => GetShinyXor() switch
     {
         0 => Shiny.AlwaysSquare,
-        <= 15 => Shiny.AlwaysStar,
+        <= 15 => Shiny.Always,
         _ => Shiny.Never,
     };
 
